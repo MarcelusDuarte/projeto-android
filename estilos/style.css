@@ -1,0 +1,216 @@
+@charset "UTF-8";
+
+/* - cores que serão utilizadas no projeto. vamos criar variaveis para cada uma delas. Podem ser deletadas daqui depois disso
+#c5ebd6
+#83e1ad
+#3ddc84
+#2fa866
+#1a5c37
+#063d1e
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /* fonte importada do Google Fontes */
+@font-face {
+    font-family: 'Android';  /* Fonte salva na pasta do projeto */
+    src: url('../fontes/idroid.otf') format('opentype'); /* url precisou do ../ porque a fonte está numa pasta acima e precisamos voltar ao nivel da raiz para entrar na pasta fontes */
+    font-weight: normal;
+}
+
+:root /* pseudo-classe root (raiz da árvore do documento). Todo documento tem. O que se definir aqui, vale para o documento inteiro. Área onde se definem as variáveis globais */{
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Android', cursive;
+/* TODAS AS VARIÁVEIS EM CSS COMEÇAM COM -- . As variáveis podem ter quaisquer nomes*/
+}
+
+* { /* essa configuração global afeta todos os elementos do html */
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after { /* qualquer link com a class externo pega essa configuração */
+    content: '\00A0\1F517';
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    min-height: 150px;
+    text-align: center;
+    padding-top: 40px; /* Criando espaço antes do h1 para deixar mais centralizado na vertical */
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    /* tentamos criar espaço sobre o h1 usando o comando margin-top: 30px, mas a margem criada saiu do espaço do cabeçalho. Então vamos criar um padding-top no header */
+    font-size: 3em;
+    font-weight: normal;
+    margin-bottom: 20px; /* Criou espaço entre o h1 e o paragrafo */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.195);
+}
+
+header > p {
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    max-width: 600px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.195);
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.363);
+}
+
+nav > a {
+    color: var(--cor1);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: 0.5s; /* cria uma animação de 0.5s que o hover faz */
+}
+
+nav > a:hover {
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+main {
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.499);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+main h1 {  
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal;
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    text-indent: 8px;
+}
+
+main img {
+    width: 100%;
+}
+
+main img.pequena {
+    max-width: 350px;/* foi removida a porcentagem para que a imagem não fique pequena demais para telas de celulares e não embasse quando a tela for muito grande */
+    display: block; /* Precisou transformar a imagem num bloco para poder centralizar. Imagem originalmente não é bloco e não centraliza apenas com o margin: auto */
+    margin: auto;
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px; /* margem negativa para o backgroud colar no box nos dois lados */
+    padding: 20px;
+    padding-bottom: 56.5%;
+    position: relative;
+
+}
+
+div.video > iframe {
+    position: absolute; /* quando usa posicionamento absoluto, conseguimos mexer com top e left */
+    top: 5%; /* distancia do topo do iframe ate o topo do box */
+    left: 5%; /* distancia da lateral esquerda do iframe ate a lateral esquerda do box */
+    width: 90%; /* Normalmente ficaria bagunçado, mas como está com valores em porcentagem, vai conseguir ficar alinhado */
+    height: 90%;
+}
+
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 2em; /* Altura de uma linha para a outra. 1em é sem espaço entre elas. */
+    font-size: 1em;
+}
+
+main strong {
+    color: var(--cor4);
+    font-weight: bold;
+}
+
+main a { /* Sem o sinal >, pega todos os links que existem dentro do main independente do nível (podem estar dentro de aside, article, etc */
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px; /* Margem negativa usada para crescer para fora */
+    border-radius: 10px 10px 0px 0px;
+    /* o padding, margin e border-radius criaram um bloco que se encaixou perfeitamente no bloco do aside, se sobrepondo */
+}
+
+aside > ul {
+    list-style-type: '\2714\00A0\00A0';
+    list-style-position: inside;
+    columns: 2;
+}
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
