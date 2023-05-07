@@ -68,7 +68,7 @@ header > p {
     padding-right: 10px;
     padding-left: 10px;
     margin: auto;
-    padding-bottom: 50px; /* alterado de margin para padding para resolver problema de responsividade em celulares de tela pequena */
+    padding-bottom: 30px; /* alterado de margin para padding para resolver problema de responsividade em celulares de tela pequena */
     color: white;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.195);
 }
